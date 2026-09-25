@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Ethandiazg
 - 👀 I’m interested in Software development, AI and Cars
 - 🌱 I’m currently learning Computer Engineering
-- 📫 How to reach me : ethandiazg@gmail.com
+
   
 
 <!---

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plan Escaparate</title>
+<meta name="description" content="Plan de empresa de Escaparate: webs para negocios de barrio con el método de enseñar la web hecha antes de vender.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --fondo: #F5F6F2;
+  --superficie: #FFFFFF;
+  --superficie-2: #EEF1EB;
+  --texto: #17211C;
+  --suave: #55625B;
+  --linea: #DCE1D8;
+  --acento: #0E6B57;
+  --acento-texto: #FFFFFF;
+  --resalte: #FFC23D;
+  --aviso: #8A5A00;
+  --display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --cuerpo: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --fondo: #101613;
+    --superficie: #18201C;
+    --superficie-2: #1F2924;
+    --texto: #E6ECE8;
+    --suave: #A2AFA8;
+    --linea: #2D3833;
+    --acento: #43C3A1;
+    --acento-texto: #0B1411;
+    --resalte: #FFC23D;
+    --aviso: #F2C46B;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fondo: #101613;
+  --superficie: #18201C;
+  --superficie-2: #1F2924;
+  --texto: #E6ECE8;
+  --suave: #A2AFA8;
+  --linea: #2D3833;
+  --acento: #43C3A1;
+  --acento-texto: #0B1411;
+  --resalte: #FFC23D;
+  --aviso: #F2C46B;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 400 16.5px/1.6 var(--cuerpo); }
+a { color: var(--acento); }
+.env { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; }
+.cabecera .eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--acento); margin: 0 0 10px; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(38px, 6vw, 56px); line-height: 1.05; margin: 0 0 14px; text-wrap: balance; }
+.entradilla { font-size: 19px; color: var(--suave); max-width: 38em; margin: 0 0 28px; }
+.cifras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 18px; }
+.cifra { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 16px; }
+.cifra b { display: block; font-family: var(--display); font-weight: 600; font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.cifra span { font-size: 14px; color: var(--suave); }
+.indice { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 8px; padding: 0; list-style: none; }
+.indice a { display: inline-block; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--texto); background: var(--superficie-2); border: 1px solid var(--linea); border-radius: 999px; padding: 6px 12px; }
+.indice a:hover, .indice a:focus-visible { border-color: var(--acento); outline: none; }
+
+section { margin-top: 56px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: clamp(27px, 4vw, 34px); line-height: 1.15; margin: 0 0 12px; text-wrap: balance; scroll-margin-top: 16px; }
+h3 { font-size: 17px; margin: 26px 0 8px; }
+p { max-width: 42em; }
+ul, ol { padding-left: 22px; max-width: 42em; }
+li { margin-bottom: 6px; }
+.clave { background: var(--superficie); border-left: 4px solid var(--resalte); padding: 14px 18px; border-radius: 0 10px 10px 0; max-width: 42em; }
+.clave p { margin: 0; }
+.nota { font-size: 14px; color: var(--suave); }
+
+.tabla { overflow-x: auto; background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; min-width: 560px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+th { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); font-weight: 700; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+tr.destacado td { background: var(--superficie-2); font-weight: 600; }
+
+.reparto { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.caja { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 18px; }
+.caja h3 { margin-top: 0; }
+.caja ul { margin: 0; }
+
+.guion { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 16px 18px; margin: 14px 0; }
+.guion-cabecera { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+.guion-cabecera b { font-size: 15px; }
+.guion pre { margin: 0; white-space: pre-wrap; font: 400 15.5px/1.55 var(--cuerpo); color: var(--texto); }
+.copiar { font: 600 14px var(--cuerpo); color: var(--acento-texto); background: var(--acento); border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; white-space: nowrap; }
+.copiar:focus-visible { outline: 3px solid var(--resalte); outline-offset: 2px; }
+.objecion { margin: 12px 0; }
+.objecion dt { font-weight: 700; }
+.objecion dd { margin: 4px 0 0; color: var(--suave); max-width: 42em; }
+.fuentes li { font-size: 14.5px; }
+
+@media (max-width: 720px) {
+  .cifras { grid-template-columns: 1fr 1fr; }
+  .reparto { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main class="env">
+  <header class="cabecera">
+    <p class="eyebrow">Plan de empresa · septiembre 2026</p>
+    <h1>Escaparate: webs para negocios de barrio</h1>
+    <p class="entradilla">Hacemos webs sencillas para peluquerías, talleres, bares y comercios que no tienen web. Se las enseñamos terminadas antes de pedirles nada. Cobramos un pago inicial y una cuota mensual.</p>
+    <div class="cifras">
+      <div class="cifra"><b>&lt;&nbsp;100&nbsp;€</b><span>para empezar</span></div>
+      <div class="cifra"><b>390&nbsp;€</b><span>primer cobro con el plan Esencial</span></div>
+      <div class="cifra"><b>5 al mes</b><span>clientes nuevos, el objetivo</span></div>
+      <div class="cifra"><b>≈&nbsp;4.150&nbsp;€</b><span>al mes en el mes 12, escenario realista</span></div>
+    </div>
+    <ul class="indice">
+      <li><a href="#oportunidad">Oportunidad</a></li>
+      <li><a href="#servicio">Servicio</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#venta">Cómo vender</a></li>
+      <li><a href="#numeros">Números</a></li>
+      <li><a href="#legal">Legal</a></li>
+      <li><a href="#30dias">30 días</a></li>
+      <li><a href="#reparto">Quién hace qué</a></li>
+      <li><a href="#riesgos">Riesgos</a></li>
+      <li><a href="#kit">Kit de venta</a></li>
+    </ul>
+  </header>
+
+  <section id="oportunidad">
+    <h2>La oportunidad</h2>
+    <ul>
+      <li><b>El 63 % de las microempresas españolas no tiene web.</b> Solo el 37 % de las empresas de menos de 10 empleados tiene una, según el INE (primer trimestre de 2025).</li>
+      <li><b>Sus clientes sí las buscan en internet.</b> El 76 % de quien busca un negocio cercano en el móvil lo visita en menos de 24 horas, y el 68 % exige al menos 4 estrellas antes de probar uno nuevo.</li>
+      <li><b>El precio de mercado encaja con nuestra oferta.</b> Un freelance cobra a un autónomo entre 300 y 800 € por una web sencilla, más 20-35 € al mes de mantenimiento.</li>
+    </ul>
+    <div class="clave"><p>La mayoría de estos negocios no va a buscar a nadie que les haga la web. Hay que ir a ellos, y eso casi nadie lo hace. Esa es nuestra ventaja.</p></div>
+  </section>
+
+  <section id="servicio">
+    <h2>El servicio</h2>
+    <p>Una web rápida, pensada para el móvil, con lo que un cliente busca: qué hacen, cuánto cuesta, cuándo abren, dónde están y un botón para escribirles por WhatsApp. Se entrega en 72 horas y el dominio es siempre del cliente.</p>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>Plan</th><th>Qué incluye</th><th class="num">Alta</th><th class="num">Cuota</th><th class="num">Primer año</th></tr></thead>
+        <tbody>
+          <tr><td><b>Esencial</b></td><td>Web de una página con servicios, horario, mapa y WhatsApp. 2 cambios al mes.</td><td class="num">390 €</td><td class="num">29 €/mes</td><td class="num">738 €</td></tr>
+          <tr><td><b>Profesional</b></td><td>Hasta 5 secciones, reservas o citas, textos para búsquedas locales. Cambios razonables.</td><td class="num">590 €</td><td class="num">39 €/mes</td><td class="num">1.058 €</td></tr>
+          <tr><td><b>Sin entrada</b></td><td>El plan Esencial sin pago inicial, con permanencia de 12 meses.</td><td class="num">0 €</td><td class="num">59 €/mes</td><td class="num">708 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota">Precios sin IVA. Todos los planes incluyen dominio .es, alojamiento, certificado de seguridad, revisión del Perfil de Empresa de Google, aviso legal y política de privacidad.</p>
+    <p>Los ejemplos que enseñas están en la web de Escaparate: una peluquería, un taller y un bar con menú del día. Cada uno muestra en directo si el negocio está abierto y cómo llegaría el mensaje de WhatsApp.</p>
+  </section>
+
+  <section id="clientes">
+    <h2>Cliente ideal</h2>
+    <p>Un negocio de barrio que <b>ya funciona</b> pero no tiene web. Si tiene buenas reseñas, tiene clientes y dinero para pagar, y entiende rápido lo que gana.</p>
+    <ul>
+      <li>Ficha de Google Maps <b>sin botón «Sitio web»</b>, o con un enlace a Facebook o Instagram.</li>
+      <li>Nota de 4,3 o más, con al menos 30 reseñas.</li>
+      <li>El dueño atiende en el local, así que puedes hablar con quien decide.</li>
+    </ul>
+    <h3>Sectores por orden de prioridad</h3>
+    <ol>
+      <li>Peluquerías, barberías y centros de estética: viven de las citas y la gente compara precios.</li>
+      <li>Talleres mecánicos y de neumáticos: la confianza y los precios orientativos venden.</li>
+      <li>Bares y restaurantes con menú del día: la carta y la reserva por WhatsApp se entienden al momento.</li>
+      <li>Fisioterapia, podología y clínicas pequeñas: pagan más y valoran la imagen.</li>
+      <li>Academias, autoescuelas y tiendas de barrio.</li>
+    </ol>
+  </section>
+
+  <section id="venta">
+    <h2>Cómo conseguimos clientes: primero la demo</h2>
+    <p>No se vende una idea, se enseña algo terminado. Es mucho más fácil decir que sí a una web que ya estás viendo con tu nombre.</p>
+    <ol>
+      <li><b>Busca en Google Maps</b> «peluquería», «taller» o «bar» y el nombre de tu ciudad. Apunta los que no tengan web y cumplan los criterios.</li>
+      <li><b>Pásame 5 negocios cada vez</b> con su nombre, servicios, precios y horario (sale de su Instagram, su ficha de Google o una foto del escaparate). Yo hago las 5 demos.</li>
+      <li><b>Visítalos en horas tranquilas</b>, de 10:30 a 12:30 o de 16:00 a 17:30. Enseña la demo en tu móvil. Son cinco minutos.</li>
+      <li><b>Haz seguimiento a los dos días</b> por WhatsApp con el enlace de la demo.</li>
+      <li><b>Pide referidos</b> a cada cliente: 50 € de descuento en su cuota por cada negocio que se apunte gracias a él.</li>
+    </ol>
+    <div class="clave"><p>Embudo previsto: de cada 5 demos enseñadas, 1 cliente. Para conseguir 5 clientes al mes hay que enseñar unas 25 demos, que son 6 o 7 visitas a la semana.</p></div>
+    <p class="nota">La tasa de 1 de cada 5 es una estimación para empezar. Apunta cada visita y la corregimos con tus datos reales al cabo de un mes.</p>
+  </section>
+
+  <section id="numeros">
+    <h2>Números</h2>
+    <h3>Costes fijos al mes</h3>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>Concepto</th><th class="num">Coste</th></tr></thead>
+        <tbody>
+          <tr><td>Cuota de autónomos con tarifa plana (primeros 12 meses)</td><td class="num">≈ 85-88 €</td></tr>
+          <tr><td>Gestoría online (opcional, recomendable)</td><td class="num">30-40 €</td></tr>
+          <tr><td>Alojamiento de las webs (Netlify o Cloudflare Pages, plan gratuito)</td><td class="num">0 €</td></tr>
+          <tr><td>Dominio .es de cada cliente (incluido en su cuota)</td><td class="num">≈ 1 € por cliente</td></tr>
+          <tr class="destacado"><td>Total aproximado</td><td class="num">≈ 120-130 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Con un solo cliente Esencial (390 €) cubres unos 3 meses de costes fijos.</p>
+
+    <h3>Escenarios al llegar al mes 12</h3>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>Escenario</th><th class="num">Clientes nuevos al mes</th><th class="num">Clientes con cuota</th><th class="num">Ingresos en el mes 12</th><th class="num">Tras costes</th></tr></thead>
+        <tbody>
+          <tr><td>Prudente</td><td class="num">2</td><td class="num">24</td><td class="num">≈ 1.740 €</td><td class="num">≈ 1.590 €</td></tr>
+          <tr class="destacado"><td>Realista</td><td class="num">5</td><td class="num">60</td><td class="num">≈ 4.350 €</td><td class="num">≈ 4.150 €</td></tr>
+          <tr><td>Ambicioso, con un ayudante a comisión</td><td class="num">10</td><td class="num">120</td><td class="num">≈ 8.700 €</td><td class="num">≈ 7.500 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota">Supuestos: alta media de 450 € y cuota media de 35 €/mes, sin IVA y antes de impuestos sobre la renta. No se cuentan las bajas; con un 2-3 % de bajas al mes, resta entre un 10 y un 15 %. El ayudante cobra 100 € por cliente cerrado.</p>
+    <div class="clave"><p>Pasar de 5.000 €/mes exige vender cada semana durante meses y, después, añadir servicios de más precio: gestión de anuncios en Google, reservas online o automatizaciones de WhatsApp. Llegar a 18.000 €/mes es un equipo pequeño, no una persona sola.</p></div>
+  </section>
+
+  <section id="legal">
+    <h2>Legal y fiscal: lo mínimo</h2>
+    <ul>
+      <li><b>Date de alta como autónomo</b> cuando cierres el primer cliente y antes de facturar. Con la tarifa plana pagas 80 € al mes (unos 85-88 € con el MEI) durante 12 meses, prorrogables otros 12 si ganas menos del salario mínimo.</li>
+      <li><b>Factura con IVA del 21 %</b>. Una gestoría online te da de alta, elige la actividad correcta y presenta los trimestrales (modelos 303 y 130).</li>
+      <li><b>Firma una hoja de encargo</b> con cada cliente: qué incluye, precio, cambios al mes y que el dominio es suyo. La plantilla está en el repositorio.</li>
+      <li><b>Cada web lleva aviso legal y política de privacidad.</b> Si no usa cookies de terceros, no necesita banner de cookies.</li>
+      <li><b>Si todavía no tienes 18 años</b>, habla antes con tus padres: el alta y los contratos tienen requisitos distintos.</li>
+    </ul>
+  </section>
+
+  <section id="30dias">
+    <h2>Los primeros 30 días</h2>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>Semana</th><th>Qué haces</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Crea un WhatsApp Business para Escaparate. Pásame tu número y publico la web con él. Haz una lista de 30 negocios sin web y mándame los 5 mejores.</td><td>5 demos listas</td></tr>
+          <tr><td>2</td><td>Tres días de visitas, 5 negocios al día. Seguimiento por WhatsApp a los dos días. Mándame 5 negocios más.</td><td>15 demos enseñadas</td></tr>
+          <tr><td>3</td><td>Cierra el primero. Alta de autónomo y factura. Publicamos su web en 72 horas. Pídele una reseña y un referido.</td><td>Primer cliente, ≈ 390-590 €</td></tr>
+          <tr><td>4</td><td>Otra ronda de 15 visitas con las demos nuevas.</td><td>2-3 clientes en total</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="reparto">
+    <h2>Quién hace qué</h2>
+    <div class="reparto">
+      <div class="caja">
+        <h3>Yo, Claude</h3>
+        <ul>
+          <li>Las demos de cada negocio que me pases</li>
+          <li>La web final, los textos y los cambios</li>
+          <li>La hoja de encargo, las facturas modelo y los mensajes</li>
+          <li>Los pasos exactos para publicar cada web</li>
+          <li>Revisar tus números cada semana y ajustar el plan</li>
+        </ul>
+      </div>
+      <div class="caja">
+        <h3>Tú</h3>
+        <ul>
+          <li>Buscar negocios y visitarlos</li>
+          <li>Enseñar la demo, cerrar y cobrar</li>
+          <li>Tratar con el cliente y pasarme sus cambios</li>
+          <li>Publicar: arrastrar la carpeta de la web a Netlify y conectar el dominio, con mis instrucciones</li>
+          <li>El alta de autónomo y la gestoría</li>
+        </ul>
+      </div>
+    </div>
+    <p class="nota">No puedo publicar webs ni cobrar desde aquí: no tengo cuentas propias ni acceso a internet para eso. Todo lo que publica o cobra pasa por tus cuentas.</p>
+  </section>
+
+  <section id="riesgos">
+    <h2>Riesgos y cómo los cubrimos</h2>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>Riesgo</th><th>Qué hacemos</th></tr></thead>
+        <tbody>
+          <tr><td>La mayoría dice que no</td><td>Es lo normal. Volumen de visitas y seguimiento a los dos días. Contamos con 4 «no» por cada «sí».</td></tr>
+          <tr><td>«Mi sobrino me la hace gratis» o Wix</td><td>Nosotros lo hacemos todo en 72 horas y en persona. Él no tiene que tocar nada.</td></tr>
+          <tr><td>Clientes que piden cambios sin parar</td><td>Límite de cambios por plan, escrito en la hoja de encargo.</td></tr>
+          <tr><td>Impagos</td><td>Se cobra antes de publicar y la cuota por transferencia periódica o Bizum.</td></tr>
+          <tr><td>Depender de mí</td><td>Las webs son HTML sencillo. Cualquier desarrollador las mantiene y todo queda en tu GitHub.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="kit">
+    <h2>Kit de venta</h2>
+    <p>Cópialos y adáptalos con tu nombre. Mejor si suenan a ti.</p>
+
+    <div class="guion">
+      <div class="guion-cabecera"><b>En persona, al entrar</b><button class="copiar" type="button">Copiar</button></div>
+      <pre>Hola, soy [tu nombre]. Hago webs para negocios del barrio. He visto que en Google tenéis muy buenas reseñas pero no tenéis web, así que os he preparado una para que la veáis. Son dos minutos, ¿te la enseño?
+
+[Enseñas la demo en tu móvil y le dejas tocarla]
+
+Si te gusta, la publico con vuestro dominio en tres días. Son 390 € y 29 € al mes, que incluyen el dominio, los cambios de precios y horarios y que salga bien en Google. Si no te convence, no pasa nada: no me debes nada.</pre>
+    </div>
+
+    <div class="guion">
+      <div class="guion-cabecera"><b>WhatsApp, primer contacto</b><button class="copiar" type="button">Copiar</button></div>
+      <pre>Hola, soy [tu nombre], de Escaparate. He visto vuestra ficha en Google (¡qué buenas reseñas!) y os he hecho una web de muestra para que veáis cómo quedaría: [enlace]
+
+Si os gusta, la publicamos en tres días con vuestro dominio. Si no, sin problema. ¿Qué os parece?</pre>
+    </div>
+
+    <div class="guion">
+      <div class="guion-cabecera"><b>WhatsApp, seguimiento a los dos días</b><button class="copiar" type="button">Copiar</button></div>
+      <pre>Hola de nuevo, soy [tu nombre]. ¿Pudisteis ver la web? Si queréis cambiar algo (fotos, precios, colores) os lo dejo hecho hoy mismo. Esta semana me quedan dos huecos para publicar.</pre>
+    </div>
+
+    <h3>Respuestas a las objeciones más comunes</h3>
+    <dl>
+      <div class="objecion"><dt>«Ya tengo Instagram.»</dt><dd>«Genial, lo enlazamos. Pero quien te busca en Google quiere ver precios, horario y cómo llegar sin tener que seguirte. La web trabaja aunque no publiques nada.»</dd></div>
+      <div class="objecion"><dt>«Ahora no tengo dinero.»</dt><dd>«Tenemos un plan sin pago inicial: 59 € al mes y listo. Con que te traiga un cliente nuevo al mes, ya se paga sola.»</dd></div>
+      <div class="objecion"><dt>«Mi sobrino me la hace.»</dt><dd>«Perfecto. Esta ya está hecha y la tienes publicada en tres días. Si prefieres esperar, te dejo mi número.»</dd></div>
+      <div class="objecion"><dt>«No me hace falta, ya tengo clientes.»</dt><dd>«Se nota por las reseñas. La web es para que cuando alguien pregunte «¿cuánto cuesta?» o «¿abrís hoy?» no se vaya al de al lado.»</dd></div>
+      <div class="objecion"><dt>«Me lo pienso.»</dt><dd>«Claro. Te mando el enlace por WhatsApp para que la veas con calma. ¿Te escribo el jueves?»</dd></div>
+    </dl>
+  </section>
+
+  <section id="fuentes">
+    <h2>Fuentes</h2>
+    <ul class="fuentes">
+      <li><a href="https://www.ine.es/dyngs/Prensa/ETICCE20241T2025.htm" target="_blank" rel="noopener">INE: Encuesta sobre el uso de TIC y del comercio electrónico en las empresas, 2024-2025</a></li>
+      <li><a href="https://www.socialmediapymes.com/cuanto-cuesta-una-web/" target="_blank" rel="noopener">Cuánto cuesta una web: precios reales en España 2026</a></li>
+      <li><a href="https://www.infoautonomos.com/seguridad-social/tarifa-plana-autonomos/" target="_blank" rel="noopener">Infoautónomos: tarifa plana de 80 € en 2026</a></li>
+      <li><a href="https://www.berzerk.es/blog/que-es-seo-local" target="_blank" rel="noopener">Berzerk: SEO local para negocios en España (datos de Google)</a></li>
+      <li><a href="https://lauraalfonso.com/resenas/estudio-resenas-consumidor/" target="_blank" rel="noopener">Laura Alfonso: comportamiento del consumidor ante las reseñas, 2025</a></li>
+    </ul>
+  </section>
+</main>
+
+<script>
+  document.querySelectorAll('.copiar').forEach((boton) => {
+    boton.addEventListener('click', () => {
+      const texto = boton.closest('.guion').querySelector('pre');
+      const listo = () => { boton.textContent = 'Copiado'; setTimeout(() => { boton.textContent = 'Copiar'; }, 1800); };
+      const seleccionar = () => {
+        const rango = document.createRange();
+        rango.selectNodeContents(texto);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(rango);
+        boton.textContent = 'Seleccionado';
+      };
+      try { navigator.clipboard.writeText(texto.textContent).then(listo, seleccionar); } catch (e) { seleccionar(); }
+    });
+  });
+</script>
+</body>
+</html>

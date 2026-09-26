@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Talleres Arroyo</title>
+<meta name="description" content="Web de ejemplo de un taller mecánico de barrio, hecha por Escaparate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --asfalto: #1B1F23;
+  --asfalto-2: #2A3036;
+  --amarillo: #F2C200;
+  --acero: #A7AFB6;
+  --fondo: #F1F2EE;
+  --blanco: #FFFFFF;
+  --texto: #1B1F23;
+  --suave: #56606A;
+  --linea: #D6D9D4;
+  --whatsapp: #1FAF55;
+  --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --cuerpo: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 400 17px/1.55 var(--cuerpo); }
+a { color: inherit; }
+.demo { background: #000; color: #EEE; font: 500 13px/1.4 system-ui, sans-serif; padding: 8px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+.demo a { color: var(--amarillo); }
+.env { max-width: 1000px; margin: 0 auto; padding-inline: 20px; }
+
+.portada { background: var(--asfalto); color: var(--blanco); }
+.peligro { height: 16px; background: repeating-linear-gradient(-45deg, var(--amarillo) 0 18px, var(--asfalto) 18px 36px); }
+.portada .env { padding-block: 48px 56px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 32px; align-items: end; }
+.estado { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--acero); }
+.estado i { width: 10px; height: 10px; border-radius: 50%; background: #6B7280; }
+.estado.abierto { color: #86EFAC; }
+.estado.abierto i { background: #4ADE80; }
+h1 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(54px, 11vw, 112px); line-height: .88; margin: 14px 0 14px; letter-spacing: .01em; }
+h1 span { color: var(--amarillo); display: block; }
+.lema { font-size: 19px; color: #D5DADF; margin: 0 0 26px; max-width: 30em; }
+.botones { display: flex; flex-wrap: wrap; gap: 12px; }
+.boton { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 22px; border-radius: 6px; font: 700 17px/1 var(--cuerpo); text-decoration: none; border: 2px solid transparent; cursor: pointer; text-transform: uppercase; letter-spacing: .03em; }
+.boton:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+.boton-amarillo { background: var(--amarillo); color: var(--asfalto); }
+.boton-linea { border-color: var(--acero); color: var(--blanco); background: transparent; }
+.garantias { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.garantias li { background: var(--asfalto-2); border-left: 4px solid var(--amarillo); padding: 12px 14px; font-weight: 600; font-size: 15.5px; }
+
+section { padding-block: 56px; }
+h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(34px, 5.5vw, 50px); line-height: 1; margin: 0 0 8px; }
+.sub { color: var(--suave); margin: 0 0 26px; max-width: 40em; }
+
+.tabla-envoltura { overflow-x: auto; background: var(--blanco); border: 1px solid var(--linea); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th { text-align: left; font: 700 13px/1.2 var(--cuerpo); text-transform: uppercase; letter-spacing: .08em; color: var(--suave); padding: 14px 16px; border-bottom: 2px solid var(--asfalto); }
+td { padding: 13px 16px; border-bottom: 1px solid var(--linea); }
+td.precio { font-family: var(--display); font-weight: 700; font-size: 22px; white-space: nowrap; text-align: right; }
+th.derecha { text-align: right; }
+small.tiempo { display: block; color: var(--suave); font-size: 14px; }
+tr:last-child td { border-bottom: 0; }
+
+.pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: paso; }
+.pasos li { counter-increment: paso; background: var(--blanco); border: 1px solid var(--linea); border-radius: 10px; padding: 20px; }
+.pasos li::before { content: "0" counter(paso); font-family: var(--display); font-weight: 800; font-size: 40px; color: var(--amarillo); -webkit-text-stroke: 1.5px var(--asfalto); display: block; line-height: 1; margin-bottom: 8px; }
+.pasos b { display: block; font-size: 18px; margin-bottom: 4px; }
+.pasos span { color: var(--suave); font-size: 16px; }
+
+.cita { background: var(--asfalto); color: var(--blanco); }
+.cita .env { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; }
+.cita .sub { color: #C9CFD5; }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+label.ancho { grid-column: 1 / -1; }
+input, select, textarea { font: 400 16px/1.4 var(--cuerpo); padding: 12px; border-radius: 6px; border: 2px solid #3A424A; background: #111417; color: var(--blanco); width: 100%; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; border-color: var(--amarillo); }
+textarea { min-height: 90px; resize: vertical; }
+form .boton { grid-column: 1 / -1; }
+
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.horario td:last-child { text-align: right; }
+.horario tr.hoy td { font-weight: 700; background: #FFF6CC; }
+.direccion { background: var(--blanco); border: 1px solid var(--linea); border-radius: 10px; padding: 20px; }
+.direccion b { font-size: 19px; }
+.direccion p { margin: 6px 0 0; color: var(--suave); }
+
+footer { background: var(--asfalto); color: var(--acero); font-size: 14px; }
+footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+.panel { position: fixed; inset: auto 16px 16px 16px; max-width: 440px; margin-left: auto; background: #fff; color: #1b1b1b; border-radius: 14px; box-shadow: 0 18px 50px rgba(0, 0, 0, .35); padding: 18px; z-index: 10; }
+.panel h4 { margin: 0 0 10px; font: 700 16px/1.3 var(--cuerpo); }
+.burbuja { background: #DCF8C6; border-radius: 12px 12px 12px 2px; padding: 10px 12px; font-size: 15px; margin-bottom: 10px; white-space: pre-line; }
+.panel p { margin: 0 0 12px; font-size: 14px; color: #555; }
+.panel button { font: 700 15px var(--cuerpo); background: var(--asfalto); color: #fff; border: 0; border-radius: 6px; padding: 10px 18px; cursor: pointer; }
+
+@media (max-width: 800px) {
+  .portada .env, .cita .env, .dos { grid-template-columns: 1fr; }
+  .pasos { grid-template-columns: 1fr; }
+  form { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="demo"><span>Web de ejemplo · negocio ficticio · hecha por Escaparate</span><a href="../index.html">Volver a Escaparate</a></div>
+
+<header class="portada">
+  <div class="peligro" aria-hidden="true"></div>
+  <div class="env">
+    <div>
+      <span class="estado" id="estado"><i></i><span>Consultando horario…</span></span>
+      <h1>Talleres <span>Arroyo</span></h1>
+      <p class="lema">Mecánica general, pre-ITV, frenos y neumáticos. Presupuesto por escrito antes de tocar tu coche.</p>
+      <div class="botones">
+        <a class="boton boton-amarillo" href="#cita">Pedir cita</a>
+        <a class="boton boton-linea" href="#precios">Ver precios</a>
+      </div>
+    </div>
+    <ul class="garantias">
+      <li>Presupuesto por escrito y sin compromiso</li>
+      <li>Garantía en reparaciones: mínimo 3 meses o 2.000 km</li>
+      <li>Te avisamos por WhatsApp con fotos del avance</li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="env" id="precios">
+    <h2>Precios orientativos</h2>
+    <p class="sub">IVA incluido. El precio final depende de tu modelo: te lo confirmamos por escrito antes de empezar.</p>
+    <div class="tabla-envoltura">
+      <table>
+        <thead><tr><th>Servicio y tiempo aproximado</th><th class="derecha">Desde</th></tr></thead>
+        <tbody>
+          <tr><td>Cambio de aceite y filtro<small class="tiempo">45 min</small></td><td class="precio">59 €</td></tr>
+          <tr><td>Revisión pre-ITV (26 puntos)<small class="tiempo">30 min</small></td><td class="precio">25 €</td></tr>
+          <tr><td>Pastillas de freno delanteras<small class="tiempo">1 h</small></td><td class="precio">89 €</td></tr>
+          <tr><td>Montaje y equilibrado de neumático<small class="tiempo">15 min/rueda</small></td><td class="precio">12 €</td></tr>
+          <tr><td>Diagnosis electrónica<small class="tiempo">30 min</small></td><td class="precio">35 €</td></tr>
+          <tr><td>Carga de aire acondicionado<small class="tiempo">1 h</small></td><td class="precio">65 €</td></tr>
+          <tr><td>Kit de distribución<small class="tiempo">4–6 h</small></td><td class="precio">320 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="env">
+    <h2>Cómo trabajamos</h2>
+    <p class="sub">Sin sorpresas en la factura.</p>
+    <ol class="pasos">
+      <li><b>Pides cita</b><span>Por WhatsApp o desde el formulario. Te damos día y hora.</span></li>
+      <li><b>Presupuesto por escrito</b><span>Revisamos el coche y te decimos qué necesita y cuánto cuesta. Tú decides.</span></li>
+      <li><b>Reparamos y avisamos</b><span>Te mandamos fotos del trabajo y te llamamos cuando esté listo.</span></li>
+    </ol>
+  </section>
+
+  <section class="cita" id="cita">
+    <div class="env">
+      <div>
+        <h2>Pide cita</h2>
+        <p class="sub">Rellena los datos y se abrirá WhatsApp con el mensaje ya escrito. Contestamos en horario de taller.</p>
+      </div>
+      <form id="formulario" novalidate>
+        <label>Matrícula<input id="matricula" name="matricula" autocomplete="off" placeholder="1234 ABC" value="1234 ABC"></label>
+        <label>Marca y modelo<input id="modelo" name="modelo" placeholder="Seat León 2016" value="Seat León 2016"></label>
+        <label>Servicio<select id="servicio" name="servicio">
+          <option>Revisión pre-ITV</option>
+          <option>Cambio de aceite y filtro</option>
+          <option>Frenos</option>
+          <option>Neumáticos</option>
+          <option>Avería o ruido</option>
+        </select></label>
+        <label>Día preferido<select id="dia" name="dia">
+          <option>Lo antes posible</option>
+          <option>Esta semana</option>
+          <option>La semana que viene</option>
+        </select></label>
+        <label class="ancho">¿Qué le pasa?<textarea id="detalle" name="detalle">Me toca la ITV el mes que viene y quiero revisarlo antes.</textarea></label>
+        <button class="boton boton-amarillo" type="submit">Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="env dos">
+    <div>
+      <h2>Horario</h2>
+      <div class="tabla-envoltura">
+        <table class="horario" aria-label="Horario del taller"><tbody id="horario"></tbody></table>
+      </div>
+    </div>
+    <div>
+      <h2>Dónde estamos</h2>
+      <div class="direccion">
+        <b>Polígono Los Álamos, nave 7 · Tu ciudad</b>
+        <p>Aparcamiento para clientes en la puerta. En la web real, aquí va el mapa de Google con el botón «Cómo llegar».</p>
+      </div>
+      <p class="sub" style="margin-top: 14px">Talleres Arroyo es un negocio inventado para mostrar cómo sería tu web.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="env"><span>Talleres Arroyo · Polígono Los Álamos, nave 7</span><span>Aviso legal · Privacidad</span></div></footer>
+
+<div class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="panel-titulo" hidden>
+  <h4 id="panel-titulo">Así le llegaría el mensaje al taller</h4>
+  <div class="burbuja" id="panel-mensaje"></div>
+  <p>En la web real, este botón abre WhatsApp con el mensaje ya escrito. El cliente solo tiene que pulsar «Enviar».</p>
+  <button type="button" id="panel-cerrar">Entendido</button>
+</div>
+
+<script>
+  // Horario: índice 0 = domingo. Cada tramo es [apertura, cierre] en formato HH:MM.
+  const HORARIO = {
+    0: [],
+    1: [['08:00', '13:30'], ['15:30', '19:00']], 2: [['08:00', '13:30'], ['15:30', '19:00']],
+    3: [['08:00', '13:30'], ['15:30', '19:00']], 4: [['08:00', '13:30'], ['15:30', '19:00']],
+    5: [['08:00', '14:00']],
+    6: [['09:00', '13:00']]
+  };
+  const DIAS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  const verHora = (t) => (t === '24:00' ? '00:00' : t);
+  const aMinutos = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+  const ahora = new Date();
+  const hoy = ahora.getDay();
+  const minutos = ahora.getHours() * 60 + ahora.getMinutes();
+
+  const cuerpo = document.getElementById('horario');
+  [1, 2, 3, 4, 5, 6, 0].forEach((d) => {
+    const fila = document.createElement('tr');
+    if (d === hoy) fila.className = 'hoy';
+    const tramos = HORARIO[d];
+    fila.innerHTML = '<td>' + DIAS[d] + '</td><td>' + (tramos.length ? tramos.map((t) => t.map(verHora).join('–')).join('<br>') : 'Cerrado') + '</td>';
+    cuerpo.appendChild(fila);
+  });
+
+  const estado = document.getElementById('estado');
+  const tramo = HORARIO[hoy].find(([a, c]) => minutos >= aMinutos(a) && minutos < aMinutos(c));
+  if (tramo) {
+    estado.classList.add('abierto');
+    estado.lastElementChild.textContent = 'Abierto ahora · hasta las ' + tramo[1];
+  } else {
+    estado.lastElementChild.textContent = 'Cerrado ahora · deja tu cita por WhatsApp';
+  }
+
+  const panel = document.getElementById('panel');
+  document.getElementById('formulario').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = (id) => document.getElementById(id).value.trim();
+    const mensaje = 'Hola, quiero pedir cita.\n' +
+      'Coche: ' + (v('modelo') || 'sin indicar') + ' (' + (v('matricula') || 'sin matrícula') + ')\n' +
+      'Servicio: ' + v('servicio') + '\n' +
+      'Cuándo: ' + v('dia') + '\n' +
+      (v('detalle') ? 'Detalle: ' + v('detalle') : '');
+    document.getElementById('panel-mensaje').textContent = mensaje;
+    panel.hidden = false;
+    document.getElementById('panel-cerrar').focus();
+  });
+  document.getElementById('panel-cerrar').addEventListener('click', () => { panel.hidden = true; });
+</script>
+</body>
+</html>

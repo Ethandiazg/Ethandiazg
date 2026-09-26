@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa Lola</title>
+<meta name="description" content="Web de ejemplo de un bar restaurante de barrio con menú del día, hecha por Escaparate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --verde: #1E3A2C;
+  --verde-2: #2C5140;
+  --mostaza: #D8A031;
+  --papel: #F7F2E8;
+  --papel-2: #EFE6D4;
+  --tomate: #B9432A;
+  --texto: #1F2A23;
+  --suave: #5C685F;
+  --linea: #DCD1BC;
+  --whatsapp: #1FAF55;
+  --display: 'Young Serif', Georgia, 'Times New Roman', serif;
+  --cuerpo: 'Work Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--papel); color: var(--texto); font: 400 17px/1.6 var(--cuerpo); }
+a { color: inherit; }
+.demo { background: #111; color: #EEE; font: 500 13px/1.4 system-ui, sans-serif; padding: 8px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+.demo a { color: #FFD76A; }
+.env { max-width: 1000px; margin: 0 auto; padding-inline: 20px; }
+
+.portada { background: var(--verde); color: var(--papel); }
+.portada .env { padding-block: 52px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.estado { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; background: rgba(255, 255, 255, .1); padding: 6px 12px; border-radius: 999px; }
+.estado i { width: 9px; height: 9px; border-radius: 50%; background: #9CA3AF; }
+.estado.abierto i { background: #4ADE80; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(56px, 10vw, 96px); line-height: .95; margin: 16px 0 12px; }
+.lema { font-size: 19px; color: #DCE6DF; margin: 0 0 26px; max-width: 28em; }
+.botones { display: flex; flex-wrap: wrap; gap: 12px; }
+.boton { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 22px; border-radius: 999px; font: 600 16px/1 var(--cuerpo); text-decoration: none; border: 2px solid transparent; cursor: pointer; }
+.boton:focus-visible { outline: 3px solid var(--mostaza); outline-offset: 3px; }
+.boton-mostaza { background: var(--mostaza); color: var(--verde); }
+.boton-claro { border-color: var(--papel); color: var(--papel); background: transparent; }
+
+.menu { background: var(--papel); color: var(--texto); border-radius: 6px; padding: 26px 26px 22px; outline: 2px solid var(--mostaza); outline-offset: -10px; box-shadow: 0 16px 40px rgba(0, 0, 0, .25); }
+.menu-cabecera { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 2px solid var(--verde); padding-bottom: 10px; margin-bottom: 12px; }
+.menu-cabecera b { font-family: var(--display); font-weight: 400; font-size: 28px; }
+.menu-cabecera span { font-family: var(--display); font-size: 30px; color: var(--tomate); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.menu-fecha { font-size: 14px; color: var(--suave); margin: 0 0 10px; }
+.menu h3 { font: 700 12.5px/1 var(--cuerpo); letter-spacing: .16em; text-transform: uppercase; color: var(--tomate); margin: 14px 0 6px; }
+.menu ul { list-style: none; margin: 0; padding: 0; }
+.menu li { padding: 3px 0; }
+.menu-pie { margin: 14px 0 0; font-size: 14px; color: var(--suave); border-top: 1px dashed var(--linea); padding-top: 10px; }
+
+section { padding-block: 56px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 5vw, 46px); line-height: 1.05; margin: 0 0 8px; }
+.sub { color: var(--suave); margin: 0 0 26px; max-width: 40em; }
+
+.carta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 48px; }
+.plato { display: flex; align-items: baseline; gap: 8px; padding-block: 10px; border-bottom: 1px solid var(--linea); }
+.plato span:first-child { flex: 1; }
+.plato small { display: block; color: var(--suave); font-size: 14px; }
+.plato b { font-family: var(--display); font-weight: 400; font-size: 20px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.alergenos { margin-top: 18px; font-size: 14.5px; color: var(--suave); }
+
+.reserva { background: var(--papel-2); }
+.reserva .env { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+label.ancho { grid-column: 1 / -1; }
+input, select { font: 400 16px/1.4 var(--cuerpo); padding: 12px; border-radius: 8px; border: 2px solid var(--linea); background: #FFFDF8; color: var(--texto); width: 100%; }
+input:focus-visible, select:focus-visible { outline: none; border-color: var(--verde); }
+form .boton { grid-column: 1 / -1; background: var(--verde); color: var(--papel); }
+
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+td { padding: 9px 0; border-bottom: 1px solid var(--linea); }
+td:last-child { text-align: right; }
+tr.hoy td { font-weight: 700; color: var(--verde); }
+tr.hoy td:first-child::after { content: " · hoy"; color: var(--tomate); font-weight: 500; }
+.direccion b { font-size: 19px; }
+.direccion p { margin: 6px 0 0; color: var(--suave); }
+
+footer { background: var(--verde); color: #C9D6CD; font-size: 14px; }
+footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+.panel { position: fixed; inset: auto 16px 16px 16px; max-width: 440px; margin-left: auto; background: #fff; color: #1b1b1b; border-radius: 16px; box-shadow: 0 18px 50px rgba(0, 0, 0, .3); padding: 18px; z-index: 10; }
+.panel h4 { margin: 0 0 10px; font: 700 16px/1.3 var(--cuerpo); }
+.burbuja { background: #DCF8C6; border-radius: 12px 12px 12px 2px; padding: 10px 12px; font-size: 15px; margin-bottom: 10px; white-space: pre-line; }
+.panel p { margin: 0 0 12px; font-size: 14px; color: #555; }
+.panel button { font: 700 15px var(--cuerpo); background: var(--verde); color: #fff; border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; }
+
+@media (max-width: 800px) {
+  .portada .env, .reserva .env, .dos, .carta { grid-template-columns: 1fr; }
+  form { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="demo"><span>Web de ejemplo · negocio ficticio · hecha por Escaparate</span><a href="../index.html">Volver a Escaparate</a></div>
+
+<header class="portada">
+  <div class="env">
+    <div>
+      <span class="estado" id="estado"><i></i><span>Consultando horario…</span></span>
+      <h1>Casa Lola</h1>
+      <p class="lema">Bar y cocina de mercado en el barrio. Menú del día entre semana, raciones para compartir y terraza.</p>
+      <div class="botones">
+        <a class="boton boton-mostaza" href="#reserva">Reservar mesa</a>
+        <a class="boton boton-claro" href="#carta">Ver la carta</a>
+      </div>
+    </div>
+    <article class="menu" aria-labelledby="menu-titulo">
+      <div class="menu-cabecera"><b id="menu-titulo">Menú del día</b><span>14,50 €</span></div>
+      <p class="menu-fecha" id="menu-fecha">De lunes a viernes, de 13:00 a 16:00</p>
+      <div id="menu-contenido"></div>
+      <p class="menu-pie">Incluye pan, bebida y postre o café. IVA incluido.</p>
+    </article>
+  </div>
+</header>
+
+<main>
+  <section class="env" id="carta">
+    <h2>Raciones para compartir</h2>
+    <p class="sub">Todo casero. Los precios incluyen IVA.</p>
+    <div class="carta">
+      <div class="plato"><span>Croquetas de jamón <small>8 unidades</small></span><b>8,00 €</b></div>
+      <div class="plato"><span>Patatas bravas <small>con nuestra salsa picante</small></span><b>6,50 €</b></div>
+      <div class="plato"><span>Tortilla de patatas <small>jugosa, con o sin cebolla</small></span><b>9,00 €</b></div>
+      <div class="plato"><span>Calamares a la andaluza</span><b>11,00 €</b></div>
+      <div class="plato"><span>Pimientos de Padrón</span><b>7,00 €</b></div>
+      <div class="plato"><span>Oreja a la plancha</span><b>8,50 €</b></div>
+      <div class="plato"><span>Ensaladilla rusa</span><b>7,50 €</b></div>
+      <div class="plato"><span>Tabla de quesos y embutidos</span><b>14,00 €</b></div>
+    </div>
+    <p class="alergenos">Tenemos la información sobre alérgenos de cada plato. Pídela al hacer tu pedido.</p>
+  </section>
+
+  <section class="reserva" id="reserva">
+    <div class="env">
+      <div>
+        <h2>Reserva tu mesa</h2>
+        <p class="sub">Elige día y hora, y se abrirá WhatsApp con la reserva ya escrita. Te confirmamos en unos minutos.</p>
+      </div>
+      <form id="formulario" novalidate>
+        <label>Personas<select id="personas" name="personas"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6 o más</option></select></label>
+        <label>Día<select id="dia" name="dia"><option>Hoy</option><option selected>Mañana</option><option>Este sábado</option><option>Este domingo</option></select></label>
+        <label>Hora<select id="hora" name="hora"><option>13:30</option><option selected>14:00</option><option>14:30</option><option>21:00</option><option>21:30</option></select></label>
+        <label>Zona<select id="zona" name="zona"><option>Comedor</option><option>Terraza</option><option>Me da igual</option></select></label>
+        <label class="ancho">Nombre<input id="nombre" name="nombre" autocomplete="name" value="Marta"></label>
+        <button class="boton" type="submit">Reservar por WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="env dos">
+    <div>
+      <h2>Horario</h2>
+      <table aria-label="Horario"><tbody id="horario"></tbody></table>
+    </div>
+    <div class="direccion">
+      <h2>Dónde estamos</h2>
+      <b>Plaza del Mercado, 3 · Tu ciudad</b>
+      <p>Frente al mercado de abastos. En la web real, aquí va el mapa de Google con el botón «Cómo llegar».</p>
+      <p style="margin-top: 14px">Casa Lola es un negocio inventado para mostrar cómo sería tu web.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="env"><span>Casa Lola · Plaza del Mercado, 3</span><span>Aviso legal · Privacidad · Alérgenos</span></div></footer>
+
+<div class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="panel-titulo" hidden>
+  <h4 id="panel-titulo">Así le llegaría la reserva al bar</h4>
+  <div class="burbuja" id="panel-mensaje"></div>
+  <p>En la web real, este botón abre WhatsApp con el mensaje ya escrito. El cliente solo tiene que pulsar «Enviar».</p>
+  <button type="button" id="panel-cerrar">Entendido</button>
+</div>
+
+<script>
+  // Menú de cada día laborable (1 = lunes … 5 = viernes).
+  const MENUS = {
+    1: { primeros: ['Lentejas estofadas', 'Ensalada de tomate y ventresca', 'Macarrones gratinados'], segundos: ['Merluza a la romana', 'Pollo al ajillo', 'Filete de ternera con patatas'], postres: ['Flan casero', 'Fruta del tiempo', 'Café'] },
+    2: { primeros: ['Salmorejo', 'Judías verdes con jamón', 'Arroz a la cubana'], segundos: ['Albóndigas en salsa', 'Bacalao con tomate', 'Lomo a la plancha'], postres: ['Natillas', 'Fruta del tiempo', 'Café'] },
+    3: { primeros: ['Cocido completo', 'Ensalada mixta', 'Crema de calabacín'], segundos: ['Segundo vuelco del cocido', 'Dorada a la sal', 'Pechuga empanada'], postres: ['Arroz con leche', 'Fruta del tiempo', 'Café'] },
+    4: { primeros: ['Paella de marisco', 'Gazpacho', 'Espinacas a la crema'], segundos: ['Calamares en su tinta', 'Chuletas de cerdo', 'Tortilla de patatas con ensalada'], postres: ['Tarta de queso', 'Fruta del tiempo', 'Café'] },
+    5: { primeros: ['Fabada', 'Ensalada de pasta', 'Revuelto de setas'], segundos: ['Pescado del día', 'Carrillada al vino tinto', 'Hamburguesa casera'], postres: ['Tarta de la abuela', 'Fruta del tiempo', 'Café'] }
+  };
+  // Horario: índice 0 = domingo. Cada tramo es [apertura, cierre] en formato HH:MM.
+  const HORARIO = {
+    0: [['12:00', '16:30']], 1: [],
+    2: [['08:00', '16:30'], ['20:00', '23:30']], 3: [['08:00', '16:30'], ['20:00', '23:30']],
+    4: [['08:00', '16:30'], ['20:00', '23:30']], 5: [['08:00', '16:30'], ['20:00', '24:00']],
+    6: [['12:00', '16:30'], ['20:00', '24:00']]
+  };
+  const DIAS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  const verHora = (t) => (t === '24:00' ? '00:00' : t);
+  const aMinutos = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+  const ahora = new Date();
+  const hoy = ahora.getDay();
+  const minutos = ahora.getHours() * 60 + ahora.getMinutes();
+
+  const contenido = document.getElementById('menu-contenido');
+  const menu = MENUS[hoy] || MENUS[1];
+  const fecha = document.getElementById('menu-fecha');
+  const hoyTexto = ahora.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+  fecha.textContent = MENUS[hoy] ? 'Hoy, ' + hoyTexto + ' · de 13:00 a 16:00' : 'Menú del lunes (el fin de semana, carta) · de 13:00 a 16:00';
+  [['Primeros', menu.primeros], ['Segundos', menu.segundos], ['Postres', menu.postres]].forEach(([titulo, platos]) => {
+    const h = document.createElement('h3');
+    h.textContent = titulo;
+    const ul = document.createElement('ul');
+    platos.forEach((p) => { const li = document.createElement('li'); li.textContent = p; ul.appendChild(li); });
+    contenido.append(h, ul);
+  });
+
+  const cuerpo = document.getElementById('horario');
+  [1, 2, 3, 4, 5, 6, 0].forEach((d) => {
+    const fila = document.createElement('tr');
+    if (d === hoy) fila.className = 'hoy';
+    const tramos = HORARIO[d];
+    fila.innerHTML = '<td>' + DIAS[d] + '</td><td>' + (tramos.length ? tramos.map((t) => t.map(verHora).join('–')).join('<br>') : 'Cerrado por descanso') + '</td>';
+    cuerpo.appendChild(fila);
+  });
+
+  const estado = document.getElementById('estado');
+  const tramo = HORARIO[hoy].find(([a, c]) => minutos >= aMinutos(a) && minutos < aMinutos(c));
+  if (tramo) {
+    estado.classList.add('abierto');
+    estado.lastElementChild.textContent = 'Abierto ahora · hasta las ' + tramo[1];
+  } else {
+    estado.lastElementChild.textContent = 'Cerrado ahora · reserva por WhatsApp';
+  }
+
+  const panel = document.getElementById('panel');
+  document.getElementById('formulario').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = (id) => document.getElementById(id).value.trim();
+    const mensaje = 'Hola, quería reservar mesa.\n' +
+      'Personas: ' + v('personas') + '\n' +
+      'Día: ' + v('dia') + ' a las ' + v('hora') + '\n' +
+      'Zona: ' + v('zona') + '\n' +
+      'A nombre de: ' + (v('nombre') || 'sin indicar');
+    document.getElementById('panel-mensaje').textContent = mensaje;
+    panel.hidden = false;
+    document.getElementById('panel-cerrar').focus();
+  });
+  document.getElementById('panel-cerrar').addEventListener('click', () => { panel.hidden = true; });
+</script>
+</body>
+</html>

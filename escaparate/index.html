@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escaparate</title>
+<meta name="description" content="Webs para peluquerías, talleres, bares y comercios de barrio. Te enseñamos tu web terminada antes de que pagues nada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --papel: #F3F5F0;
+  --papel-2: #E6EBE3;
+  --tinta: #14211C;
+  --tinta-suave: #4B5B55;
+  --toldo: #0E6B57;
+  --toldo-osc: #0A4E40;
+  --sol: #FFC23D;
+  --sol-osc: #E0A21A;
+  --blanco: #FFFFFF;
+  --linea: #D3DBD2;
+  --display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+  --texto: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 17px/1.55 var(--texto); }
+a { color: inherit; }
+.envoltura { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+
+/* Toldo */
+.toldo { position: relative; height: 46px; background: repeating-linear-gradient(90deg, var(--toldo) 0 44px, var(--blanco) 44px 88px); }
+.toldo::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 16px;
+  background:
+    radial-gradient(circle at 22px 0, var(--toldo) 21.5px, transparent 22px) 0 0 / 88px 16px repeat-x,
+    radial-gradient(circle at 66px 0, var(--blanco) 21.5px, transparent 22px) 0 0 / 88px 16px repeat-x;
+  filter: drop-shadow(0 3px 0 rgba(20, 33, 28, .10));
+}
+.rotulo { padding-block: 34px 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.marca { font-family: var(--display); font-size: 30px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; }
+.marca span { color: var(--toldo); }
+.nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-weight: 600; font-size: 15px; }
+.nav a { text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a:focus-visible { border-color: var(--toldo); outline: none; }
+
+/* Botones */
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .15s ease, background-color .15s ease; }
+.boton:focus-visible { outline: 3px solid var(--toldo); outline-offset: 3px; }
+.boton-sol { background: var(--sol); color: var(--tinta); border-color: var(--tinta); box-shadow: 3px 3px 0 var(--tinta); }
+.boton-sol:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--tinta); }
+.boton-linea { background: transparent; border-color: var(--tinta); color: var(--tinta); }
+.boton-linea:hover { background: var(--papel-2); }
+@media (prefers-reduced-motion: reduce) { .boton { transition: none; } .boton-sol:hover { transform: none; } }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding-block: 40px 56px; }
+.eyebrow { margin: 0 0 12px; font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--toldo); }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(44px, 7vw, 82px); line-height: .98; letter-spacing: .01em; margin: 0 0 20px; text-wrap: balance; text-transform: uppercase; }
+h1 em { font-style: normal; color: var(--toldo); }
+.lead { font-size: 19px; color: var(--tinta-suave); max-width: 34em; margin: 0 0 28px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Móvil de muestra */
+.movil { justify-self: center; width: min(290px, 100%); aspect-ratio: 9 / 18.5; background: var(--tinta); border-radius: 38px; padding: 12px; box-shadow: 14px 14px 0 var(--toldo); }
+.pantalla { height: 100%; border-radius: 28px; overflow: hidden; background: #FBF3F4; color: #2E1A2F; display: flex; flex-direction: column; }
+.pantalla-cabecera { background: #2E1A2F; color: #FBF3F4; padding: 30px 18px 18px; }
+.pantalla-cabecera b { display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 25px; font-style: italic; font-weight: 400; }
+.pantalla-cabecera small { font-size: 12px; opacity: .8; }
+.pantalla-cuerpo { padding: 14px 16px; display: grid; gap: 10px; font-size: 13px; }
+.mini-boton { background: #25D366; color: #06371B; border-radius: 10px; padding: 10px; font-weight: 700; text-align: center; }
+.mini-boton.gris { background: #EEDDE0; color: #2E1A2F; }
+.mini-precio { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px dashed #D9C3C8; padding-bottom: 6px; }
+.estrellas { color: #B8860B; letter-spacing: 2px; }
+
+/* Datos */
+.datos { background: var(--tinta); color: var(--papel); }
+.datos .envoltura { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding-block: 40px; }
+.dato b { display: block; font-family: var(--display); font-weight: 400; font-size: 54px; line-height: 1; color: var(--sol); }
+.dato p { margin: 8px 0 6px; font-size: 16px; }
+.dato a { font-size: 12.5px; color: #A9B8B1; }
+
+/* Secciones */
+section.bloque { padding-block: 64px; }
+h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.02; margin: 0 0 12px; text-wrap: balance; }
+.intro { color: var(--tinta-suave); max-width: 40em; margin: 0 0 32px; }
+
+.pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: paso; }
+.pasos li { counter-increment: paso; background: var(--blanco); border: 2px solid var(--tinta); border-radius: 16px; padding: 22px; }
+.pasos li::before { content: counter(paso); display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--sol); border: 2px solid var(--tinta); font-family: var(--display); font-size: 22px; margin-bottom: 14px; }
+.pasos h3 { margin: 0 0 6px; font-size: 19px; }
+.pasos p { margin: 0; color: var(--tinta-suave); font-size: 16px; }
+
+.ejemplos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ejemplo { display: flex; flex-direction: column; text-decoration: none; border-radius: 16px; overflow: hidden; border: 2px solid var(--tinta); background: var(--blanco); transition: transform .15s ease; }
+.ejemplo:hover, .ejemplo:focus-visible { transform: translateY(-3px); outline: none; box-shadow: 0 6px 0 var(--tinta); }
+@media (prefers-reduced-motion: reduce) { .ejemplo { transition: none; } .ejemplo:hover { transform: none; } }
+.ejemplo-portada { height: 150px; padding: 18px; display: flex; flex-direction: column; justify-content: flex-end; }
+.ejemplo-portada b { font-size: 26px; line-height: 1.05; }
+.ejemplo-portada small { font-size: 13px; opacity: .85; }
+.ej-pelu { background: #2E1A2F; color: #FBF3F4; }
+.ej-pelu b { font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+.ej-taller { background: #1B1F23; color: #F2C200; }
+.ej-taller b { font-family: 'Arial Narrow', var(--texto); text-transform: uppercase; font-weight: 800; letter-spacing: .02em; }
+.ej-bar { background: #1E3A2C; color: #F7F2E8; }
+.ej-bar b { font-family: Georgia, serif; }
+.ejemplo-pie { padding: 14px 18px 18px; display: grid; gap: 4px; }
+.ejemplo-pie span { font-weight: 700; }
+.ejemplo-pie small { color: var(--tinta-suave); font-size: 14px; }
+.ejemplo-pie em { font-style: normal; font-weight: 700; color: var(--toldo); font-size: 14px; }
+
+.incluye { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; list-style: none; padding: 0; margin: 0; }
+.incluye li { padding-left: 32px; position: relative; }
+.incluye li::before { content: ""; position: absolute; left: 0; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: var(--toldo); -webkit-mask: none; }
+.incluye li::after { content: ""; position: absolute; left: 7px; top: 8px; width: 5px; height: 9px; border: solid var(--blanco); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+/* Precios como etiquetas de tienda */
+.precios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+.etiqueta { position: relative; background: var(--blanco); border: 2px solid var(--tinta); border-radius: 12px 12px 12px 12px; padding: 30px 22px 22px; display: flex; flex-direction: column; gap: 12px; }
+.etiqueta::before { content: ""; position: absolute; top: 12px; right: 14px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--tinta); background: var(--papel); }
+.etiqueta.destacada { background: var(--sol); }
+.etiqueta h3 { margin: 0; font-size: 15px; letter-spacing: .12em; text-transform: uppercase; }
+.importe { font-family: var(--display); font-size: 52px; line-height: 1; font-variant-numeric: tabular-nums; }
+.importe small { font-family: var(--texto); font-size: 16px; font-weight: 700; }
+.cuota { font-weight: 700; margin-top: -6px; }
+.etiqueta ul { margin: 0; padding-left: 18px; font-size: 15.5px; display: grid; gap: 4px; }
+.nota { font-size: 14px; color: var(--tinta-suave); margin-top: 18px; }
+
+/* Preguntas */
+.faq { display: grid; gap: 10px; max-width: 760px; }
+details { background: var(--blanco); border: 2px solid var(--tinta); border-radius: 12px; padding: 14px 18px; }
+summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--display); font-size: 22px; line-height: 1; }
+details[open] summary::after { content: "–"; }
+summary:focus-visible { outline: 3px solid var(--toldo); outline-offset: 4px; border-radius: 4px; }
+details p { margin: 10px 0 0; color: var(--tinta-suave); }
+
+/* Contacto */
+.contacto { background: var(--toldo); color: var(--blanco); border-radius: 24px; padding: 40px 28px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; }
+.contacto h2 { color: var(--blanco); }
+.contacto p { margin: 0; color: #D6EDE6; }
+.tarjeta-contacto { background: var(--papel); color: var(--tinta); border-radius: 16px; padding: 20px; display: grid; gap: 10px; }
+.tarjeta-contacto small { color: var(--tinta-suave); }
+.numero { font-family: var(--display); font-size: 30px; letter-spacing: .03em; }
+.fila-copiar { display: flex; flex-wrap: wrap; gap: 10px; }
+.aviso-copiado { font-size: 14px; color: var(--toldo-osc); font-weight: 700; min-height: 1.4em; }
+
+footer { padding-block: 40px 56px; color: var(--tinta-suave); font-size: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-block: 24px 48px; }
+  .movil { width: min(250px, 80%); }
+  .datos .envoltura, .pasos, .ejemplos, .precios { grid-template-columns: 1fr; }
+  .incluye { grid-template-columns: 1fr; }
+  .contacto { grid-template-columns: 1fr; padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toldo" aria-hidden="true"></div>
+<header class="envoltura rotulo">
+  <a class="marca" href="#inicio">Escapa<span>rate</span></a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="#como">Cómo funciona</a>
+    <a href="#ejemplos">Ejemplos</a>
+    <a href="#precios">Precios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero envoltura">
+    <div>
+      <p class="eyebrow">Webs para negocios de barrio</p>
+      <h1>Tu negocio, abierto <em>también en Google</em></h1>
+      <p class="lead">Hacemos la web de tu peluquería, taller, bar o comercio y te la enseñamos terminada en tu móvil. Si te gusta, la publicamos en 72 horas. Si no te convence, no pagas nada.</p>
+      <div class="acciones">
+        <a class="boton boton-sol" href="#contacto">Quiero ver la mía</a>
+        <a class="boton boton-linea" href="#ejemplos">Ver ejemplos</a>
+      </div>
+    </div>
+    <div class="movil" aria-hidden="true">
+      <div class="pantalla">
+        <div class="pantalla-cabecera"><b>Salón Nerea</b><small>Peluquería · Abierto hasta las 19:30</small></div>
+        <div class="pantalla-cuerpo">
+          <div><span class="estrellas">★★★★★</span> 4,8 · reseñas de ejemplo</div>
+          <div class="mini-boton">Reservar por WhatsApp</div>
+          <div class="mini-boton gris">Cómo llegar</div>
+          <div class="mini-precio"><span>Corte y peinado</span><b>30 €</b></div>
+          <div class="mini-precio"><span>Mechas balayage</span><b>desde 75 €</b></div>
+          <div class="mini-precio"><span>Corte caballero</span><b>14 €</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="datos" aria-label="Por qué ahora">
+    <div class="envoltura">
+      <div class="dato">
+        <b>63&nbsp;%</b>
+        <p>de las microempresas españolas no tiene página web.</p>
+        <a href="https://www.ine.es/dyngs/Prensa/ETICCE20241T2025.htm" target="_blank" rel="noopener">INE, Encuesta TIC en empresas, 2025</a>
+      </div>
+      <div class="dato">
+        <b>76&nbsp;%</b>
+        <p>de quienes buscan un negocio cercano en el móvil lo visitan en menos de 24 horas.</p>
+        <a href="https://www.berzerk.es/blog/que-es-seo-local" target="_blank" rel="noopener">Datos de Google, citados por Berzerk</a>
+      </div>
+      <div class="dato">
+        <b>68&nbsp;%</b>
+        <p>de los clientes exige al menos 4 estrellas antes de probar un negocio local.</p>
+        <a href="https://lauraalfonso.com/resenas/estudio-resenas-consumidor/" target="_blank" rel="noopener">Estudio de reseñas 2025, Laura Alfonso</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque envoltura" id="como">
+    <h2>Cómo funciona</h2>
+    <p class="intro">Tú sigues con tu negocio. Nosotros nos encargamos de todo lo técnico, desde el dominio hasta tu ficha de Google.</p>
+    <ol class="pasos">
+      <li><h3>Hacemos tu web sin compromiso</h3><p>Con tu nombre, tus servicios y tus horarios. No te pedimos nada por adelantado.</p></li>
+      <li><h3>Te la enseñamos en tu móvil</h3><p>En tu local, en cinco minutos. Si quieres cambios, los hacemos al momento.</p></li>
+      <li><h3>La publicamos en 72 horas</h3><p>Con tu dominio .es, el botón de WhatsApp, el mapa y tu Perfil de Empresa de Google revisado.</p></li>
+    </ol>
+  </section>
+
+  <section class="bloque envoltura" id="ejemplos">
+    <h2>Ejemplos</h2>
+    <p class="intro">Tres webs de negocios ficticios para que veas el resultado. Ábrelas en el móvil, que es donde las van a ver tus clientes.</p>
+    <div class="ejemplos">
+      <a class="ejemplo" href="demos/peluqueria.html">
+        <div class="ejemplo-portada ej-pelu"><small>Peluquería</small><b>Salón Nerea</b></div>
+        <div class="ejemplo-pie"><span>Servicios con precio y reserva por WhatsApp</span><small>Para peluquerías, estética y barberías</small><em>Abrir ejemplo →</em></div>
+      </a>
+      <a class="ejemplo" href="demos/taller.html">
+        <div class="ejemplo-portada ej-taller"><small>Taller mecánico</small><b>Talleres Arroyo</b></div>
+        <div class="ejemplo-pie"><span>Precios orientativos y petición de cita</span><small>Para talleres, chapa y pintura y neumáticos</small><em>Abrir ejemplo →</em></div>
+      </a>
+      <a class="ejemplo" href="demos/restaurante.html">
+        <div class="ejemplo-portada ej-bar"><small>Bar y restaurante</small><b>Casa Lola</b></div>
+        <div class="ejemplo-pie"><span>Menú del día, carta y reservas</span><small>Para bares, restaurantes y cafeterías</small><em>Abrir ejemplo →</em></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="bloque envoltura">
+    <h2>Todo incluido</h2>
+    <p class="intro">Sin letra pequeña y sin tener que aprender nada.</p>
+    <ul class="incluye">
+      <li>Dominio .es a nombre de tu negocio</li>
+      <li>Alojamiento rápido y certificado de seguridad</li>
+      <li>Diseño pensado primero para el móvil</li>
+      <li>Botón de WhatsApp con el mensaje ya escrito</li>
+      <li>Mapa, horario y teléfono siempre a la vista</li>
+      <li>Revisión de tu Perfil de Empresa de Google</li>
+      <li>Aviso legal y política de privacidad</li>
+      <li>Cambios de precios y horarios cuando los necesites</li>
+    </ul>
+  </section>
+
+  <section class="bloque envoltura" id="precios">
+    <h2>Precios</h2>
+    <p class="intro">Un pago para crear la web y una cuota pequeña para mantenerla. O, si lo prefieres, sin pago inicial.</p>
+    <div class="precios">
+      <article class="etiqueta">
+        <h3>Esencial</h3>
+        <div class="importe">390 <small>€</small></div>
+        <div class="cuota">+ 29 €/mes</div>
+        <ul>
+          <li>Web de una página</li>
+          <li>Servicios, horario, mapa y WhatsApp</li>
+          <li>Hasta 2 cambios al mes</li>
+        </ul>
+      </article>
+      <article class="etiqueta destacada">
+        <h3>Profesional</h3>
+        <div class="importe">590 <small>€</small></div>
+        <div class="cuota">+ 39 €/mes</div>
+        <ul>
+          <li>Hasta 5 secciones: carta, galería, equipo…</li>
+          <li>Reservas o petición de cita</li>
+          <li>Textos para aparecer en búsquedas de tu zona</li>
+          <li>Cambios ilimitados razonables</li>
+        </ul>
+      </article>
+      <article class="etiqueta">
+        <h3>Sin entrada</h3>
+        <div class="importe">0 <small>€</small></div>
+        <div class="cuota">+ 59 €/mes</div>
+        <ul>
+          <li>Todo lo del plan Esencial</li>
+          <li>Sin pago inicial</li>
+          <li>Permanencia de 12 meses</li>
+        </ul>
+      </article>
+    </div>
+    <p class="nota">Precios sin IVA. El dominio es siempre tuyo: si un día te vas, te lo llevas.</p>
+  </section>
+
+  <section class="bloque envoltura">
+    <h2>Preguntas</h2>
+    <div class="faq">
+      <details><summary>¿Tengo que saber algo de informática?</summary><p>No. Nos cuentas cómo es tu negocio y del resto nos ocupamos nosotros. Para cambiar un precio o un horario, nos mandas un WhatsApp.</p></details>
+      <details><summary>¿Y si no me gusta la web?</summary><p>No pagas nada. Primero te la enseñamos terminada y solo si te convence la publicamos.</p></details>
+      <details><summary>¿Cuánto tarda?</summary><p>Una vez que dices que sí, la web está publicada con tu dominio en 72 horas.</p></details>
+      <details><summary>¿Para qué quiero web si ya tengo Instagram?</summary><p>Porque quien te busca en Google o en Maps quiere ver tus precios, tu horario y cómo llegar sin tener que seguirte. La web trabaja para ti aunque no publiques nada.</p></details>
+      <details><summary>¿Hay permanencia?</summary><p>Solo en el plan Sin entrada, que dura 12 meses. En los demás puedes darte de baja cuando quieras.</p></details>
+    </div>
+  </section>
+
+  <section class="bloque envoltura" id="contacto">
+    <div class="contacto">
+      <div>
+        <h2>¿Vemos la tuya?</h2>
+        <p>Dinos el nombre de tu negocio y en dos días te enseñamos tu web terminada. Sin compromiso.</p>
+      </div>
+      <div class="tarjeta-contacto">
+        <small>WhatsApp</small>
+        <div class="numero" id="numero">Muy pronto</div>
+        <div class="fila-copiar">
+          <a class="boton boton-sol" id="enlace-whatsapp" href="#contacto" hidden>Escribir por WhatsApp</a>
+          <button class="boton boton-linea" id="copiar" type="button" hidden>Copiar número</button>
+        </div>
+        <div class="aviso-copiado" id="aviso" role="status"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="envoltura">
+  <span>Escaparate · Webs para negocios de barrio</span>
+  <span>Precios sin IVA</span>
+</footer>
+
+<script>
+  // Número de WhatsApp del negocio, con prefijo de país y sin espacios (ejemplo: '34600111222').
+  const WHATSAPP = '';
+
+  (function () {
+    if (!WHATSAPP) return;
+    const legible = '+' + WHATSAPP.slice(0, 2) + ' ' + WHATSAPP.slice(2).replace(/(\d{3})(?=\d)/g, '$1 ');
+    document.getElementById('numero').textContent = legible;
+    const enlace = document.getElementById('enlace-whatsapp');
+    enlace.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hola, tengo un negocio y me gustaría ver cómo quedaría mi web.');
+    enlace.target = '_blank';
+    enlace.rel = 'noopener';
+    enlace.hidden = false;
+    const copiar = document.getElementById('copiar');
+    const aviso = document.getElementById('aviso');
+    copiar.hidden = false;
+    copiar.addEventListener('click', function () {
+      const hecho = () => { aviso.textContent = 'Número copiado'; };
+      const fallo = () => {
+        const rango = document.createRange();
+        rango.selectNodeContents(document.getElementById('numero'));
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(rango);
+        aviso.textContent = 'Número seleccionado: cópialo desde el menú';
+      };
+      try { navigator.clipboard.writeText(legible).then(hecho, fallo); } catch (e) { fallo(); }
+    });
+  })();
+</script>
+</body>
+</html>
